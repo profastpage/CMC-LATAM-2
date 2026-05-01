@@ -5,7 +5,6 @@ import Hero from "@/components/cmc/Hero";
 import Projects from "@/components/cmc/Projects";
 import Services from "@/components/cmc/Services";
 import Info from "@/components/cmc/Info";
-import Testimonials from "@/components/cmc/Testimonials";
 import FAQ from "@/components/cmc/FAQ";
 import Contact from "@/components/cmc/Contact";
 import Footer from "@/components/cmc/Footer";
@@ -20,7 +19,6 @@ export default function Home() {
         <Projects />
         <Services />
         <Info />
-        <Testimonials />
         <FAQ />
         <Contact />
       </main>
