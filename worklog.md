@@ -1,27 +1,28 @@
 ---
-Task ID: 1
+Task ID: 2
 Agent: Main Agent
-Task: Build CMC Architecture & Construction SPA
+Task: Expand CMC SPA with Testimonials, FAQ, WhatsApp Widget, Dark Mode, Logo improvements
 
 Work Log:
-- Initialized fullstack dev environment with Next.js 16
-- Generated 4 professional AI images (hero, 3 project types)
-- Created i18n translation system with full ES/EN content
-- Created Zustand language store for client-side state
-- Updated layout.tsx with Inter font and CMC metadata
-- Configured globals.css with CMC brand colors (#0b1d2a, #4ca64c)
-- Built 7 components: Navbar, Hero, Projects, Services, Info, Contact, Footer
-- Implemented responsive Mobile First design with Tailwind CSS
-- Added Framer Motion animations for scroll reveals
-- Implemented language toggle (ES/EN) without page reload
-- Lint check passed with no errors
-- Dev server confirmed running with 200 responses
+- Generated 5 AI portrait images of Peruvian people for testimonials (couples, family, businesswoman)
+- Updated language store from useLanguageStore to useAppStore with theme (dark/light) support
+- Added complete ES/EN translations for: testimonials (5), FAQ (5), WhatsApp widget (4 project messages)
+- Created Testimonials component: horizontal scrollable carousel with images, ratings, highlight badges
+- Created FAQ component: accordion with animated expand/collapse
+- Created WhatsApp Widget: floating FAB with popup menu, 4 project-specific pre-filled messages (+51914462378)
+- Added WhatsApp "Me interesa" buttons directly in Projects cards
+- Added Dark/Light mode toggle to Navbar (Sun/Moon icon)
+- Updated globals.css with complete dark mode CSS variables
+- Updated all components to use semantic color tokens for dark mode compatibility
+- Updated Hero gradient overlay for dark mode
+- Improved logo with house SVG icon + styled container
+- Added new nav links: Testimonios and FAQ
+- Updated Footer with new navigation links and logo consistency
 
 Stage Summary:
-- Complete CMC SPA built with Next.js 16, Tailwind CSS 4, TypeScript
-- All 7 sections functional: Nav, Hero, Projects, Services, Info, Contact, Footer
-- Dual language toggle working (ES/EN)
-- Professional images generated for hero and project gallery
-- Mobile-first responsive design
-- Framer Motion scroll animations
-- Form with loading states and success feedback
+- 5 new testimonial images generated (testimonial-1.jpg through testimonial-5.jpg)
+- 3 new components: Testimonials, FAQ, WhatsAppWidget
+- Dark mode fully functional with single-click toggle
+- WhatsApp widget redirects to +51914462378 with pre-filled messages per project type
+- All components updated for dark/light mode compatibility
+- Lint passes clean, dev server returns 200

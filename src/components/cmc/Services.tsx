@@ -1,6 +1,6 @@
 "use client";
 
-import { useLanguageStore } from "@/lib/language-store";
+import { useAppStore } from "@/lib/language-store";
 import { translations } from "@/lib/i18n";
 import { Ruler, HardHat, ClipboardCheck } from "lucide-react";
 import { motion } from "framer-motion";
@@ -31,13 +31,13 @@ const cardVariants = {
 };
 
 export default function Services() {
-  const { lang } = useLanguageStore();
+  const { lang } = useAppStore();
   const t = translations.services;
 
   return (
     <section
       id="servicios"
-      className="py-20 sm:py-28 lg:py-32 bg-sand-light"
+      className="py-20 sm:py-28 lg:py-32 bg-muted/40"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -51,7 +51,7 @@ export default function Services() {
           <span className="inline-block px-4 py-1.5 mb-4 text-xs font-semibold tracking-widest uppercase text-green bg-green/10 rounded-full">
             {t.sectionTag[lang]}
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-navy mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-6">
             {t.sectionTitle[lang]}
           </h2>
           <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
@@ -73,7 +73,7 @@ export default function Services() {
               <motion.div
                 key={index}
                 variants={cardVariants}
-                className="group bg-white rounded-2xl p-6 sm:p-8 lg:p-10 shadow-sm hover:shadow-xl transition-all duration-500 border border-border/50 hover:border-green/30 hover:-translate-y-1"
+                className="group bg-card rounded-2xl p-6 sm:p-8 lg:p-10 shadow-sm hover:shadow-xl transition-all duration-500 border border-border/60 hover:border-green/30 hover:-translate-y-1"
               >
                 {/* Icon */}
                 <div className="w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center bg-green/10 rounded-2xl mb-6 group-hover:bg-green group-hover:scale-110 transition-all duration-500">
@@ -81,7 +81,7 @@ export default function Services() {
                 </div>
 
                 {/* Content */}
-                <h3 className="text-lg sm:text-xl font-bold text-navy mb-4">
+                <h3 className="text-lg sm:text-xl font-bold text-foreground mb-4">
                   {service.title[lang]}
                 </h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">

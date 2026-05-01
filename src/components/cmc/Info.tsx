@@ -1,6 +1,6 @@
 "use client";
 
-import { useLanguageStore } from "@/lib/language-store";
+import { useAppStore } from "@/lib/language-store";
 import { translations } from "@/lib/i18n";
 import { Sun, Waves, TrendingUp, ShieldCheck } from "lucide-react";
 import { motion } from "framer-motion";
@@ -26,7 +26,7 @@ const itemVariants = {
 };
 
 export default function Info() {
-  const { lang } = useLanguageStore();
+  const { lang } = useAppStore();
   const t = translations.info;
 
   return (

@@ -52,6 +52,7 @@
   --color-sand-light: #faf8f4;
 }
 
+/* LIGHT MODE */
 :root {
   --radius: 0.625rem;
   --background: #ffffff;
@@ -79,86 +80,78 @@
   --chart-5: #64748b;
 }
 
+/* DARK MODE */
+.dark {
+  --background: #0a1520;
+  --foreground: #e8e4df;
+  --card: #0f1f2e;
+  --card-foreground: #e8e4df;
+  --popover: #0f1f2e;
+  --popover-foreground: #e8e4df;
+  --primary: #e8e4df;
+  --primary-foreground: #0b1d2a;
+  --secondary: #132d40;
+  --secondary-foreground: #e8e4df;
+  --muted: #132d40;
+  --muted-foreground: #94a3b8;
+  --accent: #4ca64c;
+  --accent-foreground: #ffffff;
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: rgba(255, 255, 255, 0.08);
+  --input: rgba(255, 255, 255, 0.1);
+  --ring: #4ca64c;
+  --chart-1: #5fbf5f;
+  --chart-2: #4ca64c;
+  --chart-3: #1a3a52;
+  --chart-4: #132d40;
+  --chart-5: #94a3b8;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground transition-colors duration-300;
   }
   html {
     scroll-behavior: smooth;
   }
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
+/* Custom scrollbar - Light */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #f5f0e8; }
+::-webkit-scrollbar-thumb { background: #0b1d2a; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #132d40; }
+
+/* Custom scrollbar - Dark */
+.dark ::-webkit-scrollbar-track { background: #0a1520; }
+.dark ::-webkit-scrollbar-thumb { background: #4ca64c; border-radius: 4px; }
+.dark ::-webkit-scrollbar-thumb:hover { background: #5fbf5f; }
+
+/* Testimonial card shimmer */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
 }
 
-::-webkit-scrollbar-track {
-  background: #f5f0e8;
+/* WhatsApp pulse */
+@keyframes whatsapp-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+  50% { box-shadow: 0 0 0 12px rgba(37, 211, 102, 0); }
 }
 
-::-webkit-scrollbar-thumb {
-  background: #0b1d2a;
-  border-radius: 4px;
+.animate-whatsapp-pulse {
+  animation: whatsapp-pulse 2s ease-in-out infinite;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #132d40;
+/* Star glow */
+@keyframes star-glow {
+  0%, 100% { filter: drop-shadow(0 0 2px rgba(250, 204, 21, 0.3)); }
+  50% { filter: drop-shadow(0 0 6px rgba(250, 204, 21, 0.6)); }
 }
 
-/* Animations */
-@keyframes fade-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.animate-star-glow {
+  animation: star-glow 3s ease-in-out infinite;
 }
-
-@keyframes fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes slide-in-right {
-  from {
-    opacity: 0;
-    transform: translateX(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-}
-
-.animate-fade-in-up {
-  animation: fade-in-up 0.8s ease-out forwards;
-}
-
-.animate-fade-in {
-  animation: fade-in 0.6s ease-out forwards;
-}
-
-.animate-slide-in-right {
-  animation: slide-in-right 0.8s ease-out forwards;
-}
-
-.animate-float {
-  animation: float 3s ease-in-out infinite;
-}
-
-.animation-delay-200 { animation-delay: 0.2s; }
-.animation-delay-400 { animation-delay: 0.4s; }
-.animation-delay-600 { animation-delay: 0.6s; }
-.animation-delay-800 { animation-delay: 0.8s; }

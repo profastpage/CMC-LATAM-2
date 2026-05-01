@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { useLanguageStore } from "@/lib/language-store";
+import { useAppStore } from "@/lib/language-store";
 import { translations } from "@/lib/i18n";
 import {
   MapPin,
@@ -14,7 +14,7 @@ import {
 import { motion } from "framer-motion";
 
 export default function Contact() {
-  const { lang } = useLanguageStore();
+  const { lang } = useAppStore();
   const t = translations.contact;
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -22,7 +22,6 @@ export default function Contact() {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate form submission
     await new Promise((resolve) => setTimeout(resolve, 1500));
     setIsSubmitting(false);
     setIsSuccess(true);
@@ -30,20 +29,20 @@ export default function Contact() {
   };
 
   return (
-    <section id="contacto" className="py-20 sm:py-28 lg:py-32 bg-sand-light">
+    <section id="contacto" className="py-20 sm:py-28 lg:py-32 bg-muted/40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
           className="text-center max-w-2xl mx-auto mb-16 sm:mb-20"
         >
           <span className="inline-block px-4 py-1.5 mb-4 text-xs font-semibold tracking-widest uppercase text-green bg-green/10 rounded-full">
             {t.sectionTag[lang]}
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-navy mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-6">
             {t.sectionTitle[lang]}
           </h2>
           <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
@@ -52,75 +51,65 @@ export default function Contact() {
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12">
-          {/* Contact Form */}
+          {/* Form */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5 }}
             className="lg:col-span-3"
           >
             <form
               onSubmit={handleSubmit}
-              className="bg-white rounded-2xl p-6 sm:p-8 lg:p-10 shadow-sm border border-border/50"
+              className="bg-card rounded-2xl p-6 sm:p-8 lg:p-10 shadow-sm border border-border/60"
             >
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6 mb-5 sm:mb-6">
-                {/* Name */}
                 <div>
-                  <label className="block text-sm font-medium text-navy mb-2">
+                  <label className="block text-sm font-medium text-foreground mb-2">
                     {t.form.name[lang]}
                   </label>
                   <input
                     type="text"
                     placeholder={t.form.namePlaceholder[lang]}
                     required
-                    className="w-full px-4 py-3 bg-sand-light border border-border rounded-xl text-navy placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-green/50 focus:border-green transition-all duration-300 text-sm"
+                    className="w-full px-4 py-3 bg-muted border border-border rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-green/50 focus:border-green transition-all duration-300 text-sm"
                   />
                 </div>
-
-                {/* Email */}
                 <div>
-                  <label className="block text-sm font-medium text-navy mb-2">
+                  <label className="block text-sm font-medium text-foreground mb-2">
                     {t.form.email[lang]}
                   </label>
                   <input
                     type="email"
                     placeholder={t.form.emailPlaceholder[lang]}
                     required
-                    className="w-full px-4 py-3 bg-sand-light border border-border rounded-xl text-navy placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-green/50 focus:border-green transition-all duration-300 text-sm"
+                    className="w-full px-4 py-3 bg-muted border border-border rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-green/50 focus:border-green transition-all duration-300 text-sm"
                   />
                 </div>
-
-                {/* Phone */}
                 <div>
-                  <label className="block text-sm font-medium text-navy mb-2">
+                  <label className="block text-sm font-medium text-foreground mb-2">
                     {t.form.phone[lang]}
                   </label>
                   <input
                     type="tel"
                     placeholder={t.form.phonePlaceholder[lang]}
-                    className="w-full px-4 py-3 bg-sand-light border border-border rounded-xl text-navy placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-green/50 focus:border-green transition-all duration-300 text-sm"
+                    className="w-full px-4 py-3 bg-muted border border-border rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-green/50 focus:border-green transition-all duration-300 text-sm"
                   />
                 </div>
-
-                {/* Subject placeholder - empty for layout balance */}
-                <div />
               </div>
 
-              {/* Message */}
               <div className="mb-6 sm:mb-8">
-                <label className="block text-sm font-medium text-navy mb-2">
+                <label className="block text-sm font-medium text-foreground mb-2">
                   {t.form.message[lang]}
                 </label>
                 <textarea
                   rows={5}
                   placeholder={t.form.messagePlaceholder[lang]}
                   required
-                  className="w-full px-4 py-3 bg-sand-light border border-border rounded-xl text-navy placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-green/50 focus:border-green transition-all duration-300 text-sm resize-none"
+                  className="w-full px-4 py-3 bg-muted border border-border rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-green/50 focus:border-green transition-all duration-300 text-sm resize-none"
                 />
               </div>
 
-              {/* Success Message */}
               {isSuccess && (
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
@@ -134,7 +123,6 @@ export default function Contact() {
                 </motion.div>
               )}
 
-              {/* Submit Button */}
               <button
                 type="submit"
                 disabled={isSubmitting}
@@ -155,74 +143,38 @@ export default function Contact() {
             </form>
           </motion.div>
 
-          {/* Contact Info */}
+          {/* Info Cards */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.15 }}
             className="lg:col-span-2"
           >
-            <div className="space-y-6">
-              {/* Address */}
-              <div className="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-sm border border-border/50">
-                <div className="w-12 h-12 flex items-center justify-center bg-green/10 rounded-xl flex-shrink-0">
-                  <MapPin className="w-6 h-6 text-green" />
+            <div className="space-y-4">
+              {[
+                { icon: MapPin, label: t.info.addressLabel[lang], value: t.info.address[lang] },
+                { icon: Phone, label: t.info.phoneLabel[lang], value: t.info.phone },
+                { icon: Mail, label: t.info.emailLabel[lang], value: t.info.email },
+                { icon: Clock, label: t.info.hoursLabel[lang], value: t.info.hours[lang] },
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  className="flex items-start gap-4 p-5 bg-card rounded-2xl shadow-sm border border-border/60 hover:border-green/20 transition-colors"
+                >
+                  <div className="w-11 h-11 flex items-center justify-center bg-green/10 rounded-xl flex-shrink-0">
+                    <item.icon className="w-5 h-5 text-green" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-semibold tracking-wider uppercase text-muted-foreground mb-0.5">
+                      {item.label}
+                    </p>
+                    <p className="text-foreground font-medium text-sm leading-relaxed">
+                      {item.value}
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-xs font-semibold tracking-wider uppercase text-muted-foreground mb-1">
-                    {t.info.addressLabel[lang]}
-                  </p>
-                  <p className="text-navy font-medium text-sm leading-relaxed">
-                    {t.info.address[lang]}
-                  </p>
-                </div>
-              </div>
-
-              {/* Phone */}
-              <div className="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-sm border border-border/50">
-                <div className="w-12 h-12 flex items-center justify-center bg-green/10 rounded-xl flex-shrink-0">
-                  <Phone className="w-6 h-6 text-green" />
-                </div>
-                <div>
-                  <p className="text-xs font-semibold tracking-wider uppercase text-muted-foreground mb-1">
-                    {t.info.phoneLabel[lang]}
-                  </p>
-                  <p className="text-navy font-medium text-sm">
-                    {t.info.phone}
-                  </p>
-                </div>
-              </div>
-
-              {/* Email */}
-              <div className="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-sm border border-border/50">
-                <div className="w-12 h-12 flex items-center justify-center bg-green/10 rounded-xl flex-shrink-0">
-                  <Mail className="w-6 h-6 text-green" />
-                </div>
-                <div>
-                  <p className="text-xs font-semibold tracking-wider uppercase text-muted-foreground mb-1">
-                    {t.info.emailLabel[lang]}
-                  </p>
-                  <p className="text-navy font-medium text-sm">
-                    {t.info.email}
-                  </p>
-                </div>
-              </div>
-
-              {/* Hours */}
-              <div className="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-sm border border-border/50">
-                <div className="w-12 h-12 flex items-center justify-center bg-green/10 rounded-xl flex-shrink-0">
-                  <Clock className="w-6 h-6 text-green" />
-                </div>
-                <div>
-                  <p className="text-xs font-semibold tracking-wider uppercase text-muted-foreground mb-1">
-                    {t.info.hoursLabel[lang]}
-                  </p>
-                  <p className="text-navy font-medium text-sm">
-                    {t.info.hours[lang]}
-                  </p>
-                </div>
-              </div>
+              ))}
             </div>
           </motion.div>
         </div>

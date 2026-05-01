@@ -1,9 +1,12 @@
 "use client";
 
-import { useLanguageStore } from "@/lib/language-store";
+import { useAppStore } from "@/lib/language-store";
 import { translations } from "@/lib/i18n";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, MessageCircle } from "lucide-react";
 import { motion } from "framer-motion";
+
+const WHATSAPP_NUMBER = "51914462378";
+const WHATSAPP_BASE = `https://wa.me/${WHATSAPP_NUMBER}?text=`;
 
 const projectImages = [
   "/images/project-beach.jpg",
@@ -13,41 +16,42 @@ const projectImages = [
 
 const containerVariants = {
   hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.2,
-    },
-  },
+  visible: { transition: { staggerChildren: 0.15 } },
 };
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 50 },
+  hidden: { opacity: 0, y: 40 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: "easeOut" },
+    transition: { duration: 0.5, ease: "easeOut" },
   },
 };
 
 export default function Projects() {
-  const { lang } = useLanguageStore();
+  const { lang } = useAppStore();
   const t = translations.projects;
 
+  const openWhatsApp = (projectKey: string) => {
+    const msg = translations.whatsapp.messages[projectKey as keyof typeof translations.whatsapp.messages][lang];
+    window.open(`${WHATSAPP_BASE}${encodeURIComponent(msg)}`, "_blank", "noopener");
+  };
+
   return (
-    <section id="proyectos" className="py-20 sm:py-28 lg:py-32 bg-white">
+    <section id="proyectos" className="py-20 sm:py-28 lg:py-32 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
           className="text-center max-w-2xl mx-auto mb-16 sm:mb-20"
         >
           <span className="inline-block px-4 py-1.5 mb-4 text-xs font-semibold tracking-widest uppercase text-green bg-green/10 rounded-full">
             {t.sectionTag[lang]}
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-navy mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-6">
             {t.sectionTitle[lang]}
           </h2>
           <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
@@ -55,7 +59,7 @@ export default function Projects() {
           </p>
         </motion.div>
 
-        {/* Projects Grid */}
+        {/* Grid */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -67,7 +71,7 @@ export default function Projects() {
             <motion.article
               key={index}
               variants={cardVariants}
-              className="group relative bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-border/50 hover:border-green/30 hover:-translate-y-1"
+              className="group relative bg-card rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-border/60 hover:border-green/30 hover:-translate-y-1"
             >
               {/* Image */}
               <div className="relative aspect-[4/5] overflow-hidden">
@@ -95,12 +99,21 @@ export default function Projects() {
 
               {/* Content */}
               <div className="p-5 sm:p-6">
-                <h3 className="text-lg sm:text-xl font-bold text-navy mb-3 group-hover:text-green transition-colors duration-300">
+                <h3 className="text-lg sm:text-xl font-bold text-foreground mb-3 group-hover:text-green transition-colors duration-300">
                   {project.title[lang]}
                 </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
+                <p className="text-muted-foreground text-sm leading-relaxed mb-5">
                   {project.description[lang]}
                 </p>
+
+                {/* WhatsApp CTA */}
+                <button
+                  onClick={() => openWhatsApp(project.whatsappKey)}
+                  className="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-semibold text-[#25D366] bg-[#25D366]/10 rounded-xl hover:bg-[#25D366] hover:text-white transition-all duration-300 w-full justify-center"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  {lang === "es" ? "Me interesa" : "I'm interested"}
+                </button>
               </div>
             </motion.article>
           ))}
