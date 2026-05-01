@@ -20,17 +20,17 @@ export default function Footer() {
   return (
     <footer className="bg-navy-dark text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-16 mb-10 sm:mb-14">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 lg:gap-16 mb-10 sm:mb-14">
           {/* Brand */}
-          <div>
-            <CMCLogo variant="light" size="md" />
+          <div className="sm:col-span-2 md:col-span-1">
+            <CMCLogo variant="dark" size="lg" />
             <p className="text-white/50 text-sm leading-relaxed max-w-sm mt-4">
               {t.tagline[lang]}
             </p>
           </div>
 
           {/* Quick Links */}
-          <div>
+          <div className="text-center sm:text-left">
             <h4 className="text-sm font-semibold tracking-widest uppercase text-white/80 mb-4">
               {t.navigation[lang]}
             </h4>
@@ -55,11 +55,11 @@ export default function Footer() {
           </div>
 
           {/* Social */}
-          <div>
+          <div className="text-center sm:text-left">
             <h4 className="text-sm font-semibold tracking-widest uppercase text-white/80 mb-4">
               {t.followUs[lang]}
             </h4>
-            <div className="flex gap-3">
+            <div className="flex gap-3 sm:justify-start justify-center">
               {socialLinks.map((social) => (
                 <a
                   key={social.label}
@@ -75,8 +75,8 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-white/10 pt-8">
-          <p className="text-center text-white/30 text-sm">
+        <div className="border-t border-white/10 pt-8 text-center sm:text-center">
+          <p className="text-white/30 text-sm">
             &copy; {currentYear} CMC Arquitectura. {t.rights[lang]}
           </p>
         </div>

@@ -1,28 +1,26 @@
 ---
-Task ID: 2
+Task ID: 3
 Agent: Main Agent
-Task: Add Testimonials, FAQ, WhatsApp Widget, Logo, Dark Mode to CMC SPA
+Task: UI polish - centering, drawer menu, logo, responsiveness, reveal effects
 
 Work Log:
-- Generated 5 AI testimonial images (Peruvian people: wedding couple, family, Airbnb host, retirement, birthday)
-- Fixed testimonial image paths (/images/testimonials/ directory)
-- Created CMCLogo component with SVG house + wave architectural logo
-- Updated Navbar to use CMCLogo with transparent/solid variants
-- Updated Footer to use CMCLogo component
-- Created AnimatedCounter component with IntersectionObserver for stats
-- Updated Info component with animated counters
-- Verified all existing components: Testimonials, FAQ, WhatsApp Widget, Projects
-- All components already had dark mode support via CSS variables
-- Navbar has Sun/Moon toggle, applies .dark class to documentElement
-- WhatsApp Widget (+51914462378) with pre-filled messages per project type
-- Lint check passed with zero errors
-- Dev server confirmed running with 200 responses
+- Analyzed 4 uploaded images with VLM: testimonials screenshot, drawer menu reference, official CMC logo, mobile nav
+- Recreated CMCLogo with official design: green triangular roof + navy house silhouette + windows + door
+- Created MobileDrawer component: full-screen dark overlay, slides right-to-left with spring animation
+- Updated Navbar to use MobileDrawer instead of dropdown (with body scroll lock)
+- Centered Services section: icons, titles, descriptions all text-center
+- Centered Projects section: titles and descriptions text-center
+- Improved Info section: responsive grid (1 col mobile → 2 cols sm → 3 cols lg)
+- Added reveal animation (x: 40 → 0) to Info advantage cards
+- Added reveal animation (x: 50 → 0) to Testimonial cards
+- Fixed Footer responsive grid and logo variant
+- Added dark variant to CMCLogo for dark backgrounds
+- Zero lint errors, consistent 200 responses on dev server
 
 Stage Summary:
-- 5 testimonial images generated and integrated
-- CMCLogo SVG component created with 3 variants (transparent, solid, light)
-- AnimatedCounter with scroll-triggered number counting animation
-- WhatsApp widget floating button with project-specific pre-filled messages
-- Dark/Light toggle in Navbar working perfectly
-- All 10 sections: Nav, Hero, Projects, Services, Info, Testimonials, FAQ, Contact, Footer, WhatsApp Widget
-- Zero lint errors, clean compilation
+- Official CMC logo recreated with green roof + navy house design
+- Mobile drawer menu: slides from right, dark theme, backdrop blur, body scroll lock
+- All services and project titles/descriptions centered
+- Info section 100% responsive mobile-first with flex-col → flex-row
+- Reveal effects: cards slide from right on scroll
+- Mobile navigation properly scrolls to sections with 300ms delay after drawer close
