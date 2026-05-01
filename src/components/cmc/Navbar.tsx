@@ -48,18 +48,16 @@ export default function Navbar() {
 
   return (
     <>
-      <motion.header
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
+      {/* ALWAYS FIXED AT TOP */}
+      <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? "bg-background/90 backdrop-blur-xl shadow-lg border-b border-border/50"
+            ? "bg-background/95 backdrop-blur-xl shadow-lg border-b border-border/50"
             : "bg-transparent"
         }`}
       >
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 sm:h-20">
+          <div className="flex items-center justify-between h-14 sm:h-16 lg:h-[72px]">
             {/* Logo */}
             <a
               href="#"
@@ -70,7 +68,7 @@ export default function Navbar() {
             >
               <CMCLogo
                 variant={isTransparent ? "transparent" : "solid"}
-                size="md"
+                size="sm"
               />
             </a>
 
@@ -90,7 +88,6 @@ export default function Navbar() {
                 </button>
               ))}
 
-              {/* Controls */}
               <div className="flex items-center gap-2 ml-3">
                 <button
                   onClick={toggleTheme}
@@ -101,13 +98,8 @@ export default function Navbar() {
                   }`}
                   aria-label="Toggle theme"
                 >
-                  {theme === "dark" ? (
-                    <Sun className="w-4 h-4" />
-                  ) : (
-                    <Moon className="w-4 h-4" />
-                  )}
+                  {theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
                 </button>
-
                 <button
                   onClick={toggleLanguage}
                   className={`flex items-center gap-1.5 px-3.5 py-2 text-[13px] font-bold tracking-wider rounded-xl border-2 transition-all duration-200 ${
@@ -122,49 +114,38 @@ export default function Navbar() {
               </div>
             </div>
 
-            {/* Mobile Controls */}
-            <div className="flex lg:hidden items-center gap-2">
+            {/* Mobile Controls - compact */}
+            <div className="flex lg:hidden items-center gap-1.5">
               <button
                 onClick={toggleTheme}
-                className={`p-2 rounded-lg transition-colors ${
-                  isTransparent
-                    ? "text-white/80 hover:bg-white/10"
-                    : "text-foreground/70 hover:bg-muted"
+                className={`p-1.5 rounded-lg transition-colors ${
+                  isTransparent ? "text-white/80" : "text-foreground/70"
                 }`}
                 aria-label="Toggle theme"
               >
-                {theme === "dark" ? (
-                  <Sun className="w-4 h-4" />
-                ) : (
-                  <Moon className="w-4 h-4" />
-                )}
+                {theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
               </button>
               <button
                 onClick={toggleLanguage}
-                className={`flex items-center gap-1 px-2.5 py-1.5 text-[11px] font-bold rounded-full border transition-all duration-200 ${
-                  isTransparent
-                    ? "border-white/25 text-white/90"
-                    : "border-border text-foreground/80"
+                className={`flex items-center gap-1 px-2 py-1 text-[10px] font-bold rounded-full border transition-all ${
+                  isTransparent ? "border-white/25 text-white/90" : "border-border text-foreground/80"
                 }`}
               >
-                <Globe className="w-3 h-3" />
                 {lang === "es" ? "EN" : "ES"}
               </button>
               <button
                 onClick={() => setIsDrawerOpen(true)}
-                className={`p-2 rounded-lg transition-colors ${
-                  isTransparent
-                    ? "text-white hover:bg-white/10"
-                    : "text-foreground hover:bg-muted"
+                className={`p-1.5 rounded-lg transition-colors ${
+                  isTransparent ? "text-white" : "text-foreground"
                 }`}
                 aria-label="Open menu"
               >
-                <Menu className="w-6 h-6" />
+                <Menu className="w-5 h-5" />
               </button>
             </div>
           </div>
         </nav>
-      </motion.header>
+      </header>
 
       {/* Mobile Drawer */}
       <MobileDrawer
