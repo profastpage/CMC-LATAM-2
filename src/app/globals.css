@@ -111,12 +111,35 @@
   * {
     @apply border-border outline-ring/50;
   }
-  body {
-    @apply bg-background text-foreground transition-colors duration-300;
-  }
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
+  body {
+    @apply bg-background text-foreground transition-colors duration-300;
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+}
+
+/* Force top-level containers to never overflow horizontally */
+html, body, #__next {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Allow testimonial carousel to scroll horizontally */
+.testimonial-scroll {
+  overflow-x: auto !important;
+}
+
+/* Instagram-style testimonial carousel scrollbar hide */
+.testimonial-scroll::-webkit-scrollbar {
+  display: none;
+}
+.testimonial-scroll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 /* Custom scrollbar - Light */
