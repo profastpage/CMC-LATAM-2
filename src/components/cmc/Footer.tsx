@@ -3,6 +3,7 @@
 import { useAppStore } from "@/lib/language-store";
 import { translations } from "@/lib/i18n";
 import { Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
+import CMCLogo from "./CMCLogo";
 
 const socialLinks = [
   { icon: Facebook, href: "#", label: "Facebook" },
@@ -22,24 +23,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-16 mb-10 sm:mb-14">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-2.5 mb-4">
-              <div className="w-9 h-9 rounded-xl flex items-center justify-center bg-green/20">
-                <svg
-                  viewBox="0 0 32 32"
-                  fill="none"
-                  className="w-5 h-5"
-                >
-                  <path
-                    d="M16 3L3 14h4v13h6v-8h6v8h6V14h4L16 3z"
-                    fill="white"
-                  />
-                </svg>
-              </div>
-              <span className="text-2xl font-extrabold tracking-[0.15em]">
-                CMC
-              </span>
-            </div>
-            <p className="text-white/50 text-sm leading-relaxed max-w-sm">
+            <CMCLogo variant="light" size="md" />
+            <p className="text-white/50 text-sm leading-relaxed max-w-sm mt-4">
               {t.tagline[lang]}
             </p>
           </div>

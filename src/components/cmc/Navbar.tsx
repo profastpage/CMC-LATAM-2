@@ -5,6 +5,7 @@ import { useAppStore } from "@/lib/language-store";
 import { translations } from "@/lib/i18n";
 import { Menu, X, Globe, Sun, Moon } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import CMCLogo from "./CMCLogo";
 
 const navLinks = [
   { key: "proyectos" as const, href: "#proyectos" },
@@ -65,43 +66,11 @@ export default function Navbar() {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
-            className="flex items-center gap-2.5"
           >
-            {/* Logo Icon */}
-            <div
-              className={`w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center transition-all duration-300 ${
-                isTransparent
-                  ? "bg-white/15 backdrop-blur-sm border border-white/20"
-                  : "bg-green shadow-md shadow-green/20"
-              }`}
-            >
-              <svg
-                viewBox="0 0 32 32"
-                fill="none"
-                className="w-5 h-5 sm:w-6 sm:h-6"
-              >
-                <path
-                  d="M16 3L3 14h4v13h6v-8h6v8h6V14h4L16 3z"
-                  fill="white"
-                  className="group-hover:fill-green transition-colors"
-                />
-                <path
-                  d="M16 3L3 14h4v13h6v-8h6v8h6V14h4L16 3z"
-                  stroke={isTransparent ? "white" : "#4ca64c"}
-                  strokeWidth="1.5"
-                  strokeLinejoin="round"
-                  className="opacity-40"
-                />
-              </svg>
-            </div>
-            {/* Logo Text */}
-            <span
-              className={`text-2xl sm:text-[1.7rem] font-extrabold tracking-[0.15em] transition-colors duration-300 ${
-                isTransparent ? "text-white" : "text-foreground"
-              }`}
-            >
-              CMC
-            </span>
+            <CMCLogo
+              variant={isTransparent ? "transparent" : "solid"}
+              size="md"
+            />
           </a>
 
           {/* Desktop Nav */}
@@ -165,9 +134,9 @@ export default function Navbar() {
               }`}
             >
               {theme === "dark" ? (
-                <Sun className="w-4.5 h-4.5" />
+                <Sun className="w-4 h-4" />
               ) : (
-                <Moon className="w-4.5 h-4.5" />
+                <Moon className="w-4 h-4" />
               )}
             </button>
             <button
@@ -189,7 +158,11 @@ export default function Navbar() {
                   : "text-foreground hover:bg-muted"
               }`}
             >
-              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
             </button>
           </div>
         </div>

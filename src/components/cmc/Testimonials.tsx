@@ -7,11 +7,11 @@ import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import { motion } from "framer-motion";
 
 const testimonialImages = [
-  "/images/testimonial-1.jpg",
-  "/images/testimonial-2.jpg",
-  "/images/testimonial-3.jpg",
-  "/images/testimonial-4.jpg",
-  "/images/testimonial-5.jpg",
+  "/images/testimonials/testimonial-1.jpg",
+  "/images/testimonials/testimonial-2.jpg",
+  "/images/testimonials/testimonial-3.jpg",
+  "/images/testimonials/testimonial-4.jpg",
+  "/images/testimonials/testimonial-5.jpg",
 ];
 
 export default function Testimonials() {
