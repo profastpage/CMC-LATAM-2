@@ -33,6 +33,23 @@ export const metadata: Metadata = {
     description:
       "Construimos tu refugio cerca del mar. Diseño y construcción de casas exclusivas en entornos costeros del Perú.",
     type: "website",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "CMC Arquitectura y Construcción Costera en Perú",
+      },
+    ],
+    locale: "es_PE",
+    siteName: "CMC Arquitectura",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "CMC | Arquitectura y Construcción Costera",
+    description:
+      "Construimos tu refugio cerca del mar. Diseño y construcción de casas exclusivas en entornos costeros del Perú.",
+    images: ["/og-image.png"],
   },
 };
 
