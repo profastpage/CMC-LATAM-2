@@ -1,92 +1,119 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { useAppStore } from "@/lib/language-store";
 import { translations } from "@/lib/i18n";
 import { ArrowRight, ChevronDown } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
-const heroImages = [
+const desktopImages = [
   "/images/hero-1.jpg",
   "/images/hero-2.jpg",
 ];
 
+const mobileImages = [
+  "/images/hero-mobile-1.jpg",
+  "/images/hero-mobile-2.jpg",
+  "/images/hero-mobile-3.jpg",
+];
+
+const DESKTOP_INTERVAL = 4000;
+const MOBILE_INTERVAL = 3500;
+const CROSSFADE_MS = 1200;
+
+function useCrossfade(imageList: number[], interval: number) {
+  const [current, setCurrent] = useState(0);
+  const [incoming, setIncoming] = useState(1 % imageList.length);
+  const [showIncoming, setShowIncoming] = useState(false);
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const cycle = useCallback(() => {
+    // Step 1: Start fading in the next image on top
+    setShowIncoming(true);
+
+    // Step 2: After crossfade completes, swap layers instantly (no flash)
+    setTimeout(() => {
+      setCurrent((prev) => (prev + 1) % imageList.length);
+      setIncoming((prev) => (prev + 1) % imageList.length);
+      // Reset incoming opacity instantly (no transition)
+      setShowIncoming(false);
+    }, CROSSFADE_MS);
+  }, [imageList.length]);
+
+  useEffect(() => {
+    timerRef.current = setInterval(cycle, interval);
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current);
+    };
+  }, [cycle, interval]);
+
+  return { current, incoming, showIncoming };
+}
+
 export default function Hero() {
   const { lang, theme } = useAppStore();
   const t = translations.hero;
-  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const desktop = useCrossfade(desktopImages, DESKTOP_INTERVAL);
+  const mobile = useCrossfade(mobileImages, MOBILE_INTERVAL);
 
   const scrollToProjects = () => {
     const el = document.querySelector("#proyectos");
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
-  // Auto-slider every 4 seconds
-  const nextSlide = useCallback(() => {
-    setCurrentIndex((prev) => (prev + 1) % heroImages.length);
-  }, []);
-
-  useEffect(() => {
-    const interval = setInterval(nextSlide, 4000);
-    return () => clearInterval(interval);
-  }, [nextSlide]);
+  const overlayClass =
+    theme === "dark"
+      ? "bg-gradient-to-b from-navy-dark/85 via-navy/75 to-navy-dark/90"
+      : "bg-gradient-to-b from-navy-dark/70 via-navy/50 to-navy-dark/80";
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Slider */}
-      <div className="absolute inset-0">
-        <AnimatePresence mode="wait">
-          <motion.img
-            key={currentIndex}
-            src={heroImages[currentIndex]}
-            alt={`Coastal architecture ${currentIndex + 1}`}
-            className="absolute inset-0 w-full h-full object-cover"
-            initial={{ opacity: 0, scale: 1.05 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1.2, ease: "easeInOut" }}
-          />
-        </AnimatePresence>
-
-        {/* Dark overlay */}
-        {theme === "dark" ? (
-          <div className="absolute inset-0 bg-gradient-to-b from-navy-dark/85 via-navy/75 to-navy-dark/90" />
-        ) : (
-          <div className="absolute inset-0 bg-gradient-to-b from-navy-dark/70 via-navy/50 to-navy-dark/80" />
-        )}
+      {/* ===== DESKTOP SLIDER ===== */}
+      <div className="absolute inset-0 hidden lg:block" aria-hidden="true">
+        {/* Base layer - always visible */}
+        <img
+          src={desktopImages[desktop.current]}
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        {/* Incoming layer - fades in on top, then gets swapped */}
+        <img
+          src={desktopImages[desktop.incoming]}
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{
+            opacity: desktop.showIncoming ? 1 : 0,
+            transition: desktop.showIncoming
+              ? `opacity ${CROSSFADE_MS}ms ease-in-out`
+              : "none",
+          }}
+        />
+        <div className={`absolute inset-0 ${overlayClass}`} />
       </div>
 
-      {/* Slider progress indicators */}
-      <div className="absolute top-24 sm:top-28 right-6 sm:right-10 z-20 flex gap-2">
-        {heroImages.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentIndex(index)}
-            className="group relative flex items-center justify-end"
-            aria-label={`Go to slide ${index + 1}`}
-          >
-            {/* Progress bar animation */}
-            {index === currentIndex && (
-              <motion.div
-                className="absolute right-0 top-1/2 -translate-y-1/2 h-[2px] bg-green rounded-full"
-                initial={{ width: 0 }}
-                animate={{ width: "100%" }}
-                transition={{ duration: 4, ease: "linear" }}
-                style={{ width: "24px" }}
-              />
-            )}
-            <div
-              className={`w-2 h-2 rounded-full transition-all duration-500 ${
-                index === currentIndex
-                  ? "bg-green scale-125 shadow-lg shadow-green/50"
-                  : "bg-white/30 group-hover:bg-white/60"
-              }`}
-            />
-          </button>
-        ))}
+      {/* ===== MOBILE SLIDER ===== */}
+      <div className="absolute inset-0 lg:hidden" aria-hidden="true">
+        <img
+          src={mobileImages[mobile.current]}
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <img
+          src={mobileImages[mobile.incoming]}
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{
+            opacity: mobile.showIncoming ? 1 : 0,
+            transition: mobile.showIncoming
+              ? `opacity ${CROSSFADE_MS}ms ease-in-out`
+              : "none",
+          }}
+        />
+        <div className={`absolute inset-0 ${overlayClass}`} />
       </div>
 
-      {/* Content */}
+      {/* ===== CONTENT ===== */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 sm:py-40">
         <div className="max-w-3xl">
           <motion.div
@@ -134,7 +161,7 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* ===== SCROLL INDICATOR ===== */}
       <motion.button
         onClick={scrollToProjects}
         initial={{ opacity: 0 }}
