@@ -60,7 +60,7 @@ export default function Info() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 mb-14 sm:mb-20"
+          className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 mb-14 sm:mb-20 max-w-4xl mx-auto"
         >
           {t.stats.map((stat, index) => {
             const Icon = statsIcons[index];
@@ -101,13 +101,13 @@ export default function Info() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-5xl mx-auto"
         >
           {t.advantages.items.map((item, index) => (
             <motion.div
               key={index}
               variants={revealVariants}
-              className="p-5 sm:p-6 lg:p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-green/30 transition-all duration-300 hover:-translate-y-1 flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-5"
+              className="p-5 sm:p-6 lg:p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-green/30 transition-all duration-300 hover:-translate-y-1 flex flex-col items-center text-center gap-4"
             >
               {/* Number */}
               <div className="w-12 h-12 flex items-center justify-center bg-green/20 rounded-xl flex-shrink-0">
@@ -117,7 +117,7 @@ export default function Info() {
               </div>
 
               {/* Content */}
-              <div className="flex-1 text-center sm:text-left">
+              <div className="flex-1">
                 <h4 className="text-base sm:text-lg font-bold mb-2">
                   {item.title[lang]}
                 </h4>

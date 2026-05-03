@@ -23,6 +23,11 @@ export const metadata: Metadata = {
     "diseño costero",
   ],
   authors: [{ name: "CMC Arquitectura" }],
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
+  },
   openGraph: {
     title: "CMC | Arquitectura y Construcción Costera",
     description:
