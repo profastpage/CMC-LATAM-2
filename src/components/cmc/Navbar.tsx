@@ -9,9 +9,9 @@ import MobileDrawer from "./MobileDrawer";
 
 const navLinks = [
   { key: "proyectos" as const, href: "#proyectos" },
+  { key: "interiores" as const, href: "#interiores" },
   { key: "servicios" as const, href: "#servicios" },
   { key: "nosotros" as const, href: "#nosotros" },
-  { key: "testimonios" as const, href: "#testimonios" },
   { key: "faq" as const, href: "#faq" },
   { key: "contacto" as const, href: "#contacto" },
 ];

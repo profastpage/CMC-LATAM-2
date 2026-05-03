@@ -3,10 +3,10 @@ export type Language = "es" | "en";
 export const translations = {
   nav: {
     proyectos: { es: "Proyectos", en: "Projects" },
+    interiores: { es: "Interiores", en: "Interiors" },
     servicios: { es: "Servicios", en: "Services" },
     nosotros: { es: "Nosotros", en: "About" },
     contacto: { es: "Contacto", en: "Contact" },
-    testimonios: { es: "Testimonios", en: "Testimonials" },
     faq: { es: "FAQ", en: "FAQ" },
   },
   hero: {
@@ -68,6 +68,35 @@ export const translations = {
       },
     ],
     viewProject: { es: "Ver Detalle", en: "View Details" },
+  },
+  interiors: {
+    sectionTag: { es: "Espacios Interiores", en: "Interior Spaces" },
+    sectionTitle: {
+      es: "Detalles que hacen la diferencia",
+      en: "Details that make the difference",
+    },
+    sectionDesc: {
+      es: "Cada interior CMC está pensado para ofrecer confort, funcionalidad y una conexión armónica con el entorno costero. Acabados premium y espacios que inspiran.",
+      en: "Every CMC interior is designed to offer comfort, functionality, and a harmonious connection with the coastal environment. Premium finishes and spaces that inspire.",
+    },
+    items: [
+      {
+        title: { es: "Salas de Estar", en: "Living Rooms" },
+        description: {
+          es: "Amplios espacios abiertos con grandes ventanales que enmarcan el paisaje costero. Materiales nobles como madera tropical, piedra natural y acero inoxidable crean ambientes sofisticados y acogedores.",
+          en: "Open spaces with large windows framing the coastal landscape. Noble materials like tropical wood, natural stone, and stainless steel create sophisticated and welcoming environments.",
+        },
+        image: "/images/interior-1.jpg",
+      },
+      {
+        title: { es: "Cocinas & Zonas Sociales", en: "Kitchens & Social Areas" },
+        description: {
+          es: "Cocinas integradas con isla central, electrodomésticos de primera línea y acabados en cuarzo o mármol. Diseñadas para ser el corazón del hogar donde se crean los mejores momentos en familia.",
+          en: "Integrated kitchens with central island, top-of-the-line appliances, and quartz or marble finishes. Designed to be the heart of the home where the best family moments are created.",
+        },
+        image: "/images/interior-2.jpg",
+      },
+    ],
   },
   services: {
     sectionTag: { es: "Nuestros Servicios", en: "Our Services" },

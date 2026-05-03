@@ -37,8 +37,8 @@ export default function Footer() {
             <ul className="space-y-3">
               {[
                 { label: translations.nav.proyectos[lang], href: "#proyectos" },
+                { label: translations.nav.interiores[lang], href: "#interiores" },
                 { label: translations.nav.servicios[lang], href: "#servicios" },
-                { label: translations.nav.testimonios[lang], href: "#testimonios" },
                 { label: translations.nav.faq[lang], href: "#faq" },
                 { label: translations.nav.contacto[lang], href: "#contacto" },
               ].map((link) => (

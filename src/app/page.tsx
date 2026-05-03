@@ -3,6 +3,7 @@
 import Navbar from "@/components/cmc/Navbar";
 import Hero from "@/components/cmc/Hero";
 import Projects from "@/components/cmc/Projects";
+import Interiors from "@/components/cmc/Interiors";
 import Services from "@/components/cmc/Services";
 import Info from "@/components/cmc/Info";
 import FAQ from "@/components/cmc/FAQ";
@@ -17,6 +18,7 @@ export default function Home() {
       <main className="flex-1">
         <Hero />
         <Projects />
+        <Interiors />
         <Services />
         <Info />
         <FAQ />
