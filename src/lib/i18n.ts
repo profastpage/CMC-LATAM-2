@@ -41,7 +41,7 @@ export const translations = {
     projects: [
       {
         tag: { es: "Arquitectura", en: "Architecture" },
-        title: { es: "Balcones de Hayruro", en: "Balcones de Hayruro" },
+        title: { es: "Balcones de Huayruro", en: "Balcones de Huayruro" },
         description: {
           es: "Estructura de balcones modernos en madera que se integra con el paisaje natural. Diseño que combina la calidez de los materiales naturales con líneas contemporáneas, creando espacios perfectos para disfrutar del entorno.",
           en: "Modern wooden balcony structure that blends with the natural landscape. A design combining the warmth of natural materials with contemporary lines, creating perfect spaces to enjoy the surroundings.",
@@ -270,8 +270,8 @@ export const translations = {
     projectName: { es: "Proyecto", en: "Project" },
     messages: {
       balcones: {
-        es: "Hola CMC, estoy interesado/a en el proyecto Balcones de Hayruro. Me gustaría recibir más información sobre el diseño, materiales y disponibilidad.",
-        en: "Hi CMC, I'm interested in the Balcones de Hayruro project. I would like to receive more information about the design, materials, and availability.",
+        es: "Hola CMC, estoy interesado/a en el proyecto Balcones de Huayruro. Me gustaría recibir más información sobre el diseño, materiales y disponibilidad.",
+        en: "Hi CMC, I'm interested in the Balcones de Huayruro project. I would like to receive more information about the design, materials, and availability.",
       },
       waltako: {
         es: "Hola CMC, me interesa conocer más sobre el proyecto Waltako al Natural. ¿Podrían enviarme más detalles y agendar una visita?",
@@ -287,7 +287,7 @@ export const translations = {
       },
     },
     projectLabels: {
-      balcones: { es: "Balcones de Hayruro", en: "Balcones de Hayruro" },
+      balcones: { es: "Balcones de Huayruro", en: "Balcones de Huayruro" },
       waltako: { es: "Waltako al Natural", en: "Waltako al Natural" },
       terraza: { es: "Terraza de Palos", en: "Terraza de Palos" },
       general: { es: "Consulta General", en: "General Inquiry" },
