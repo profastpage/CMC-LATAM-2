@@ -40,31 +40,31 @@ export const translations = {
     },
     projects: [
       {
-        tag: { es: "Playa", en: "Beach" },
-        title: { es: "Casas de Campo-Playa", en: "Beach Country Houses" },
+        tag: { es: "Arquitectura", en: "Architecture" },
+        title: { es: "Balcones de Hayruro", en: "Balcones de Hayruro" },
         description: {
-          es: "Residencias que armonizan con el paisaje costero, diseñadas para disfrutar de la brisa del mar sin sacrificar el confort moderno. Materiales resistentes y acabados premium.",
-          en: "Residences that harmonize with the coastal landscape, designed to enjoy the sea breeze without sacrificing modern comfort. Weather-resistant materials and premium finishes.",
+          es: "Estructura de balcones modernos en madera que se integra con el paisaje natural. Diseño que combina la calidez de los materiales naturales con líneas contemporáneas, creando espacios perfectos para disfrutar del entorno.",
+          en: "Modern wooden balcony structure that blends with the natural landscape. A design combining the warmth of natural materials with contemporary lines, creating perfect spaces to enjoy the surroundings.",
         },
-        whatsappKey: "playa",
+        whatsappKey: "balcones",
       },
       {
-        tag: { es: "Costa", en: "Coast" },
-        title: { es: "Residencias en Lima Costa", en: "Lima Coast Residences" },
+        tag: { es: "Natural", en: "Nature" },
+        title: { es: "Waltako al Natural", en: "Waltako al Natural" },
         description: {
-          es: "Proyectos residenciales en los mejores distritos costeros de Lima. Diseños contemporáneos que maximizan la vista al mar y crean ambientes de vida sofisticados.",
-          en: "Residential projects in Lima's finest coastal districts. Contemporary designs that maximize ocean views and create sophisticated living environments.",
+          es: "Proyecto costero que respeta y realza el entorno natural. Espacios abiertos que conectan directamente con el paisaje marino, utilizando materiales locales y técnicas sostenibles para una experiencia auténtica.",
+          en: "A coastal project that respects and enhances the natural environment. Open spaces that connect directly with the seascape, using local materials and sustainable techniques for an authentic experience.",
         },
-        whatsappKey: "lima",
+        whatsappKey: "waltako",
       },
       {
-        tag: { es: "Villa", en: "Villa" },
-        title: { es: "Villas Modernas", en: "Modern Villas" },
+        tag: { es: "Terraza", en: "Terrace" },
+        title: { es: "Terraza de Palos", en: "Terraza de Palos" },
         description: {
-          es: "Villas de lujo con arquitectura vanguardista, piscinas infinity y espacios abiertos que conectan con la naturaleza. El máximo exponente de la vida costera peruana.",
-          en: "Luxury villas with avant-garde architecture, infinity pools, and open spaces that connect with nature. The ultimate expression of Peruvian coastal living.",
+          es: "Terraza con techado de palos que evoca la tradición constructora peruana. Un espacio rústico y sofisticado a la vez, diseñado para la convivencia al aire libre con vista al paisaje costero.",
+          en: "A pole-roofed terrace evoking Peruvian building tradition. A rustic yet sophisticated space designed for outdoor living with coastal landscape views.",
         },
-        whatsappKey: "villa",
+        whatsappKey: "terraza",
       },
     ],
     viewProject: { es: "Ver Detalle", en: "View Details" },
@@ -269,17 +269,17 @@ export const translations = {
     },
     projectName: { es: "Proyecto", en: "Project" },
     messages: {
-      playa: {
-        es: "Hola CMC, estoy interesado/a en las Casas de Campo-Playa. Me gustaría recibir más información sobre modelos, precios y disponibilidad de lotes.",
-        en: "Hi CMC, I'm interested in the Beach Country Houses. I would like to receive more information about models, prices, and lot availability.",
+      balcones: {
+        es: "Hola CMC, estoy interesado/a en el proyecto Balcones de Hayruro. Me gustaría recibir más información sobre el diseño, materiales y disponibilidad.",
+        en: "Hi CMC, I'm interested in the Balcones de Hayruro project. I would like to receive more information about the design, materials, and availability.",
       },
-      lima: {
-        es: "Hola CMC, me interesa conocer más sobre las Residencias en Lima Costa. ¿Podrían enviarme el catálogo y agendar una visita?",
-        en: "Hi CMC, I'm interested in learning more about Lima Coast Residences. Could you send me the catalog and schedule a visit?",
+      waltako: {
+        es: "Hola CMC, me interesa conocer más sobre el proyecto Waltako al Natural. ¿Podrían enviarme más detalles y agendar una visita?",
+        en: "Hi CMC, I'm interested in learning more about the Waltako al Natural project. Could you send me more details and schedule a visit?",
       },
-      villa: {
-        es: "Hola CMC, quiero información sobre las Villas Modernas. Estoy buscando una villa de lujo para inversión y uso personal. ¿Cuáles son las opciones disponibles?",
-        en: "Hi CMC, I want information about Modern Villas. I'm looking for a luxury villa for investment and personal use. What options are available?",
+      terraza: {
+        es: "Hola CMC, quiero información sobre el proyecto Terraza de Palos. Estoy buscando un espacio con terraza al aire libre. ¿Cuáles son las opciones disponibles?",
+        en: "Hi CMC, I want information about the Terraza de Palos project. I'm looking for an outdoor terrace space. What options are available?",
       },
       general: {
         es: "Hola CMC, quiero construir mi casa en la costa del Perú. ¿Podrían asesorarme sobre el proceso y agendar una consulta gratuita?",
@@ -287,9 +287,9 @@ export const translations = {
       },
     },
     projectLabels: {
-      playa: { es: "Casas de Playa", en: "Beach Houses" },
-      lima: { es: "Lima Costa", en: "Lima Coast" },
-      villa: { es: "Villas Modernas", en: "Modern Villas" },
+      balcones: { es: "Balcones de Hayruro", en: "Balcones de Hayruro" },
+      waltako: { es: "Waltako al Natural", en: "Waltako al Natural" },
+      terraza: { es: "Terraza de Palos", en: "Terraza de Palos" },
       general: { es: "Consulta General", en: "General Inquiry" },
     },
   },

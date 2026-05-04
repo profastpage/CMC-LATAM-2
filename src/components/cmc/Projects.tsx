@@ -9,9 +9,9 @@ const WHATSAPP_NUMBER = "51914462378";
 const WHATSAPP_BASE = `https://wa.me/${WHATSAPP_NUMBER}?text=`;
 
 const projectImages = [
-  "/images/project-beach.jpg",
-  "/images/project-lima.jpg",
-  "/images/project-villa.jpg",
+  "/images/project-balcones.jpg",
+  "/images/project-waltako.jpg",
+  "/images/project-terraza.jpg",
 ];
 
 const containerVariants = {
