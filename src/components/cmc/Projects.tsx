@@ -82,24 +82,29 @@ export default function Projects() {
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 {/* Gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-                <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
               </div>
 
-              {/* Text overlay - positioned at bottom */}
-              <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
+              {/* Text overlay - always visible on mobile, hover extras on desktop */}
+              <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-8">
+                {/* Title - always visible */}
                 <h3 className="text-xl sm:text-2xl font-bold text-white drop-shadow-lg mb-2">
                   {project.title[lang]}
                 </h3>
-                <p className="text-white/80 text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500 mb-4 max-h-0 group-hover:max-h-24 overflow-hidden">
+
+                {/* Description - always visible on mobile, hover reveal on desktop */}
+                <p className="text-white/90 text-sm leading-relaxed mb-4 sm:max-h-0 sm:overflow-hidden sm:opacity-0 sm:group-hover:max-h-24 sm:group-hover:opacity-100 sm:transition-all sm:duration-500 line-clamp-2 sm:line-clamp-none">
                   {project.description[lang]}
                 </p>
+
+                {/* CTA - always visible, readable on all devices */}
                 <div className="flex items-center gap-2">
-                  <span className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold text-[#25D366] bg-[#25D366]/90 backdrop-blur-sm rounded-xl hover:bg-[#25D366] hover:text-white transition-all duration-300">
+                  <span className="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-semibold text-white bg-[#25D366] rounded-xl hover:bg-[#20bd59] transition-colors duration-300 shadow-lg">
                     <MessageCircle className="w-4 h-4" />
                     {lang === "es" ? "Me interesa" : "I'm interested"}
                   </span>
-                  <span className="w-10 h-10 flex items-center justify-center bg-white/20 backdrop-blur-sm rounded-full text-white opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
+                  {/* Arrow - only on desktop hover */}
+                  <span className="hidden sm:flex w-10 h-10 items-center justify-center bg-white/20 backdrop-blur-sm rounded-full text-white opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
                     <ArrowUpRight className="w-5 h-5" />
                   </span>
                 </div>
