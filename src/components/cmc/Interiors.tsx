@@ -50,7 +50,7 @@ export default function Interiors() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8"
         >
           {t.items.map((item, index) => (
             <motion.article

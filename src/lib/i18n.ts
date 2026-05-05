@@ -81,14 +81,6 @@ export const translations = {
     },
     items: [
       {
-        title: { es: "Salas de Estar", en: "Living Rooms" },
-        description: {
-          es: "Amplios espacios abiertos con grandes ventanales que enmarcan el paisaje costero. Materiales nobles como madera tropical, piedra natural y acero inoxidable crean ambientes sofisticados y acogedores.",
-          en: "Open spaces with large windows framing the coastal landscape. Noble materials like tropical wood, natural stone, and stainless steel create sophisticated and welcoming environments.",
-        },
-        image: "/images/interior-1.jpg",
-      },
-      {
         title: { es: "Cocinas & Zonas Sociales", en: "Kitchens & Social Areas" },
         description: {
           es: "Cocinas integradas con isla central, electrodomésticos de primera línea y acabados en cuarzo o mármol. Diseñadas para ser el corazón del hogar donde se crean los mejores momentos en familia.",
