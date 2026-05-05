@@ -96,6 +96,14 @@ export const translations = {
         },
         image: "/images/interior-2.jpg",
       },
+      {
+        title: { es: "Dormitorios & Baños", en: "Bedrooms & Bathrooms" },
+        description: {
+          es: "Dormitorios diseñados para el descanso con vistas panorámicas al mar. Baños de lujo con acabados en porcelanato y grifería premium que transforman la rutina diaria en una experiencia de bienestar.",
+          en: "Bedrooms designed for rest with panoramic ocean views. Luxury bathrooms with porcelain finishes and premium fixtures that transform daily routine into a wellness experience.",
+        },
+        image: "/images/interior-3.jpg",
+      },
     ],
   },
   services: {
